@@ -1,3 +1,6 @@
+
+
+#nmt_model建模训练
 python -m nmt.nmt \
     --src=vi --tgt=en \
     --vocab_prefix=/home/xyx/workspace/tensorflow_nmt/tmp/nmt_data/vocab  \
@@ -12,7 +15,7 @@ python -m nmt.nmt \
     --dropout=0.2 \
     --metrics=bleu
 
-
+#nmt_attention_model建模训练
 mkdir /tmp/nmt_attention_model
 
 python -m nmt.nmt \
@@ -30,13 +33,14 @@ python -m nmt.nmt \
     --dropout=0.2 \
     --metrics=bleu
 
-
+#测试
 python -m nmt.nmt \
     --model_dir=/home/xyx/workspace/tensorflow_nmt/tmp/nmt_model \
     --inference_input_file=/home/xyx/workspace/tensorflow_nmt/tmp/my_infer_file.vi \
     --inference_output_file=/home/xyx/workspace/tensorflow_nmt/tmp/nmt_model/output_infer \
     --out_dir=/home/xyx/workspace/tensorflow_nmt/tmp/nmt_model
 
+#测试
 python -m nmt.nmt \
     --model_dir=/home/xyx/workspace/tensorflow_nmt/tmp/nmt_attention_model \
     --inference_input_file=/home/xyx/workspace/tensorflow_nmt/tmp/my_infer_file.vi \
