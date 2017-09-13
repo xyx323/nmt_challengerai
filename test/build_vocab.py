@@ -1,12 +1,14 @@
 import collections
-
-input_dir = '/home/xyx/workspace/tensorflow_nmt/tmp/nmt_data/train.en'
-output_dir = '/home/xyx/workspace/tensorflow_nmt/tmp/nmt_data/build_vocab.en'
-inputs = open(input_dir, 'r')  
-
+input_dir = '../data/train/20170912/train.en'
+output_dir = '../data/train/20170912/dev.en'
+inputs = open(input_dir, 'r')
+outputs = open(output_dir, 'w')
 vocab = collections.OrderedDict()
-
+line_count = 0
 for line in inputs.readlines():
+    line_count += 1
+    if line_count % 100000 == 0:
+        print(line_count)
     line = line.strip("\n")
     words = line.split(" ")
     for word in words:
